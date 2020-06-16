@@ -1,4 +1,4 @@
-name: Build
+name: Blog auto-build
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
       uses: peaceiris/actions-hugo@v2
       with:
         hugo-version: '0.71.1'
-        # extended: true
+        extended: true
 
     - name: Build
       run: |
@@ -23,7 +23,14 @@ jobs:
         hugo --minify --environment production
         cd ..
 
-    - name: Commit and push changes
+    - name: Commit changes
       run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
         git add .
-        git commit -m "action: blog building"
+        git commit -m "blog build action"
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.TOKEN }}
