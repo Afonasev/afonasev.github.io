@@ -1,4 +1,5 @@
 # afonasev.github.io
+![Blog auto-build](https://github.com/afonasev/afonasev.github.io/workflows/Blog%20auto-build/badge.svg)
 
 All hugo commands must be runned in `/src` directory.
 
