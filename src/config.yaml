@@ -1,32 +1,36 @@
-languageCode: "ru-ru"
-baseUrl: "https://afonasev.github.io/"
-title: "Afonasev Evgeniy Blog"
-theme: "anubis"
+---
+languageCode: ru-ru
+baseUrl: https://afonasev.github.io/
+title: Afonasev Evgeniy Blog
+theme: anubis
 paginate: 10
-publishDir: ../
+publishDir: "../"
 disqusShortname: afonasev
 googleAnalytics: UA-123-45
 enableRobotsTXT: true
-
 menu:
   main:
-  - identifier: archive
+  - url: ea.afonasev@gmail.com
+    name: Email
+    weight: 3
+  - url: https://github.com/afonasev
+    name: Github
+    weight: 2
+  - url: "/posts/"
     name: Archive
     title: Archive
-    url: /posts/
-    weight: 0
-
+    weight: 1
+    identifier: archive
 params:
-  author: "Afonasev Evgeniy Blog"
-  description: ""
+  author: Afonasev Evgeniy Blog
+  description: ''
   images:
-    - images/og-featured.png # relative path to "static" directory
+  - images/og-featured.png
   customCSS:
-    - css/my.css # relative path to "static" directory
-  dateFormat: "2006-01-02"
+  - css/my.css
+  dateFormat: '2006-01-02'
   paginationSinglePost: false
-
 markup:
   goldmark:
     renderer:
-      unsafe: true # enable raw HTML in Markdown
+      unsafe: true
