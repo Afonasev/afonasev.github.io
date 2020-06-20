@@ -2,7 +2,8 @@ name: Blog auto-build
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
 
 jobs:
   build:
@@ -18,19 +19,20 @@ jobs:
         extended: true
 
     - name: Build
+      env:
+        HUGO_ENV: production
       run: |
         cd ./src
-        hugo --minify --environment production
-        cd ..
+        hugo --minify --verbose
 
     - name: Commit changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add .
-        git commit -m "blog build action"
+        git commit -m "build blog pages"
 
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        github_token: ${{ secrets.TOKEN }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
